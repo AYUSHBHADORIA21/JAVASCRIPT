@@ -63,8 +63,8 @@ const newArray = [200 , 300 , 400]
 
 function returnSecondValue(getArray)
 {
-    console.log(getArray[1]);
+    return getArray[1];
 }
 
-// returnSecondValue(newArray);
-returnSecondValue([500 , 400 , 200 ])
+// console.log(returnSecondValue(newArray));
+console.log(returnSecondValue([500 , 400 , 200 ]))
