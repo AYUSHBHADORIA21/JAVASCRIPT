@@ -35,9 +35,32 @@ const  obj5 = {...obj1 ,...obj2 ,...obj3 }
 // console.log(obj5);
 
 
-console.log(Object.keys(tinderUser))
-console.log(Object.values(tinderUser))
-console.log(Object.entries(tinderUser))
+// console.log(Object.keys(tinderUser))
+// console.log(Object.values(tinderUser))
+// console.log(Object.entries(tinderUser))
 
-console.log(tinderUser.hasOwnProperty("name"))
+// console.log(tinderUser.hasOwnProperty("name"))
 
+
+//restructure of object 
+
+const course ={
+    coursename:"JS with chai",
+    price:999,
+    courseInstructor:"Ayush Bhadoria "
+}
+
+//course.courseInstructor;
+
+const {coursename} = course
+console.log({coursename})
+
+{
+    //json format he ye 
+}
+
+[
+    {},
+    {},
+    //is form me bhi mil skta hai JSON 
+]
