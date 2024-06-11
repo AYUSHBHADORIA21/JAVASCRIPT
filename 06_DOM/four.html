@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHai aur Code</title>
+</head>
+<body  style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName)
+    {
+        const li = document.createElement("li");
+        li.innerHTML=`${langName}`
+        document.querySelector(".language").appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("TypeScript")
+    //har ek value ke sara ka sara tree traverse karna hota he 
+    //document ke andar yaha to ek value he to koi dekkat nahi hai
+    //agar 1000  hue to 1000 bar tree traverse optimization issue ho jaega 
+
+    function addOptiLanguage (langName)
+    {
+        const li = document.createElement("li")
+        // const addText = document.createTextNode(langName);
+        // li.appendChild(addText)
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li);
+    }
+    addOptiLanguage("goLang");
+    //edhar apko pura tree traverse nahi karna padhta hai
+    //kyu ki isme abb normal textNode bana ke add kar rhe ho
+    //innerHTML use karte he to pura tree traversing hoteh hai
+
+    //EDIT
+
+    const secondlang = document.querySelector("li:nth-child(2)")
+    // secondlang.innerHTML="Mojo"
+    const newli = document.createElement("li")
+    newli.textContent="mojo"
+    //newli.innerHTML="mojo"
+    // newli.appendChild(document.createTextNode("MOJO"))
+    secondlang.replaceWith(newli) 
+
+    //EDIT
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = "<li>TypeScript</li>"
+
+    //remove
+    const lastlang = document.querySelector("li:last-child")
+    lastlang.remove();
+</script>
+</html>
