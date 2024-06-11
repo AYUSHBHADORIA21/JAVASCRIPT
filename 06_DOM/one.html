@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM learning</title>
+    <style>
+        .rg-black{
+            background-color: black;
+            color:#fff;
+        }
+    </style>
+</head>
+<body class="rg-black">
+   <div>
+        <h1 id="title" class = "heading">DOM learning on Chai <span style="display: none;">or</span> Code</h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="password" id="password">
+        
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+   </div>
+</body>
+</html>
+
+<!-- //Document object model 
+//ye apka Document banta he / Html banta he object se he to banta ha 
+//object kya ho gye ? head he , body he 
+//Document kis model se bana hua he / kya structure he , page kesa dekhta he 
+//ye sab smjh me aa gya to ap usme manipulation kar skte ho  -->
+
+
+<!-- 
+document.getElementById("title")
+<h1 id=​"title" class=​"heading">​DOM learning on Chai aur Code​</h1>​
+document.getElementById("title").className
+'heading'
+document.getElementById("title").attribute
+undefined
+document.getElementById("title").innerHTML
+'DOM learning on Chai aur Code'
+document.getElementById("title").getAttribute("id")
+'title'
+document.getElementById("title").getAttribute("class")
+'heading'
+document.getElementById("title").getAttribute("class" ,"test")
+'heading'
+document.getElementById("title").getAttribute("class")
+'heading'
+document.getElementById("title").setAttribute("class" ,"title")
+undefined
+document.getElementById("title").getAttribute("class")
+'title'
+document.getElementById("title").setAttribute("class" ,"title heading")
+undefined
+document.getElementById("title").getAttribute("class")
+'title heading' -->
+
+
+<!-- styling
+
+title.style.backgroundColor ="green"
+'green'
+title.style.borderRadius ="15px"
+'15px'
+title.style.padding ="15px 0"
+'15px 0' -->
+
+<!-- extract content
+
+hidden vale bhi dekha deta he 
+title.textContent 
+'DOM learning on Chai or Code'
+
+
+title.innerText
+'DOM learning on Chai Code'
+
+
+ye attribute bhi dekha deta he 
+title.innerHTML
+'DOM learning on Chai <span style="display: none;">or</span> Code' -->
+
+
+
+<!-- 
+
+DOM manipulation
+
+
+
+const myul = document.querySelector("ul")
+undefined
+myul
+<ul>​…​</ul>​
+const turngreen = myul.querySelector("li")
+undefined
+turngreen
+<li>​…​</li>​
+turngreen.style.padding = "15px"
+'15px'
+turngreen.style.backgroundColor = "green"
+'green'
+turngreen.innerText = "five"
+'five' -->
+
+
+
+<!-- node List
+
+document.querySelectorAll("li")
+NodeList(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+
+//ye pure array nahi he . Array ata he to usme prototype me map ye sab ata he isme nahi aa rha he 
+undefined
+tempLiList.style.color = "green"
+error
+
+tempLiList[0].style.color = "green"
+successfull
+
+
+tempLiList.forEach((l)=>{
+    l.style.backgroundColor = "blue"
+})
+ -->
+
+
+<!-- HTMLcollection 
+
+document.getElementsByClassName("list-item")
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+//isme iterate karne ke liye kuch hota he nahi he to isko to convert karna padhta hai
+undefined
+
+const tempList = document.getElementsByClassName("list-item")
+undefined
+
+tempList
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+Array.from(tempList)
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]0: li.list-item1: li.list-item2: li.list-item3: li.list-itemlength: 4[[Prototype]]: Array(0)at: ƒ at()concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()findLast: ƒ findLast()findLastIndex: ƒ findLastIndex()flat: ƒ flat()flatMap: ƒ flatMap()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toReversed: ƒ toReversed()toSorted: ƒ toSorted()toSpliced: ƒ toSpliced()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()with: ƒ with()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {at: true, copyWithin: true, entries: true, fill: true, find: true, …}[[Prototype]]: Object
+
+const myConvertedArray = Array.from(tempList)
+undefined
+
+myConvertedArray
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+
+myConvertedArray.forEach((item)=>{
+    item.style.backgroundColor ="green"
+}) -->
