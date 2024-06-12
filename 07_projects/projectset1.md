@@ -6,7 +6,7 @@
 
 # Solution Code
 
-## Project - 1
+## Project - 1 Solution
 
 ```JavaScript
 const buttons = document.querySelectorAll(".button");
@@ -35,7 +35,7 @@ buttons.forEach(function(button){
 
 ```
 
-## Project - 2
+## Project - 2 Solution
 
 ```JavaScript
 const form = document.querySelector('form');
@@ -92,4 +92,16 @@ form.addEventListener('submit', function (e) {
     }
   }
 });
+```
+
+# Project-3 Solutions
+
+```Javascript
+const clock = document.getElementById("clock")
+
+setInterval(function(){
+  let date = new Date();
+  clock.innerHTML= date.toLocaleTimeString();
+}, 1000);
+
 ```
