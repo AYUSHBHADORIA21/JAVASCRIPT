@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>htnml Events </title>
+    </head>
+    <body style="background-color: #414141; color: aliceblue;">
+        <h2>Amazing image</h2>
+        <div >
+            <ul id="images">
+                <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+                <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+                <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+                <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+                <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+                <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+            </ul>
+       </div>
+    </body>
+    <script>
+        // document.querySelector("#owl").onclick = function()
+        // {
+        //     alert("owl is cliked");
+        // }
+       // isme bht sare dekkat ho skte he  eventlisner propogation ki property dete hai 
+       // vo morden technique he to vo use karenge 
+
+       //(False) hota he third parameter default false hota he isliye nahi likhte 
+       /*(bht sare application bina true/false likh ke complete he nahi hote )*/ 
+
+       //type , timestamp , preventDefault
+       //target , toElement , srcElement , currentTarget,
+       //clientX, clientY ,screenX , screenY 
+       //altkey ,ctrlkey ,shiftkey , keyCode
+
+    //    document.getElementById("owl").addEventListener("click" , function(e){/*e = event-Object*/
+
+    //         console.log(e);
+    //    },false)
+       
+    //    //event propogation have 2 context eventbubbling , eventcapturing
+    //    //default hota he vo hota he eventbubbling 
+       
+
+    //    //ab agar owl pe click kiya to phele image wala print hoga ya owl wala
+    //    //yaha hogi eventbubbling neche se upar// andar se bhar // phle owl hoga fhir image
+    //    //true kar denge to top to bottom jaega // capturing karega // phele img then owl 
+
+    //    document.querySelector("#images").addEventListener("click" , function(e){
+    //         console.log("Clicked inside the ul");
+    //    }, false)
+
+    //    document.querySelector("#owl").addEventListener("click" , function(e){
+    //         console.log("owl clicked");
+    //         e.stopPropagation()
+    //         //ab ye sirf owl kp he print karega uske badh propogate ho jaega 
+    //         //image print nahi hoga
+    //    }, false)
+
+    //    document.getElementById("google"),addEventListener("click" , function(e){
+    //         e.preventDefault();//google me redirect nahi karega 
+    //         e.stopPropagation();//isrf yahi hoga print
+    //         console.log("google clicked");
+    //    } , false )
+
+    document.querySelector("#images").addEventListener("click", function(e){
+        // console.log(e.target.parentNode);
+        //it will return the li part which we have to remove
+        //we don't only want to remove the image only but li also
+        //that's why access it parentNode
+
+        console.log(e.target.parentNode.tagName)
+        //dekkat he ek ki agar li pe click kiya uska parent he ul 
+        //to pura ul udh jaega to ham use karenge tagName 
+        // tagName  jispe click kiya uska tag dega image pe kiya to IMG dega
+        //li pe kiya to LI dega
+
+        if(e.target.parentNode.tagName ==="IMG")
+        {
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+       
+        
+    } , false )
+    
+
+        
+       
+
+    </script>
+</html>
