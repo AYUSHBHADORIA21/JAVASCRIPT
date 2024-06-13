@@ -80,7 +80,7 @@ async function consumePromiseFive(){
 consumePromiseFive()
 
 // mtlb kuch response milne wala hai
-// jaha convert hone me ya fetch hone me time lage waha await laga dete hai
+// jaha convert  hone me ya fetch hone me time lage waha await laga dete hai
 async function getAllUsers(){
     try {
         const response = await fetch('https://randomuser.me/api/')
@@ -105,3 +105,19 @@ fetch('https://randomuser.me/api/')
     console.log(error)
 })
 
+//fetch jada jaldi execute hota hai
+//priority queue lagi hue hai 
+//to iske task jada jaldi hote hai
+
+//jab bhi fetch call hota hai to 2 kam/part hote hai
+//1st part(data space reserve karne ke liye memory me) => Data(space reserve) , onfulfilled[](resolve),onRejectionp[](reject)
+//2nd part(API request handle karne ke liye) => web Browser/Node-->network Request--->success or Failed
+
+
+//koi bhi response aya kuch bhi ki error hai vo bhi onfulfilled[](resolve) me jaega(Success)
+//request gye nahi he / no response to onRejectionp[](reject)
+
+//response ke basis pe onfilfilled[] ya onRejection[] fire honge inme hote hai funtion ye Data ko fulfill karega
+//ab ye data jaega response me Global memory mai (apne computer mai)
+
+ 
