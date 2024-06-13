@@ -224,3 +224,112 @@ function newGame()
 ```
 
 
+# Project 05 - Solutions
+
+```JavaScript
+
+const insert = document.getElementById('insert');
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+    <div class='color'>
+    <table>
+    <tr>
+      <th>Key</th>
+      <th>Keycode</th> 
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.keyCode}</td> 
+      <td>${e.code}</td>
+    </tr>
+    
+  </table>
+    </div>
+  `;
+});
+
+
+
+```
+
+# Problem 6 -Solution
+```JavaScript
+
+//generate a random color
+
+const randomColor = function () {
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+let intervalId;
+const startChangingColor = function () {
+  if (!intervalId) {
+    intervalId = setInterval(changeBgColor, 1000);
+  }
+
+  function changeBgColor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+};
+const stopChangingColor = function () {
+  clearInterval(intervalId);
+  intervalId = null;
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
+
+
+```
+
+# Problem 7 Solution
+
+```JavaScript
+
+const hexCharacters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E", "F"]
+
+function getCharacters(index){
+  return hexCharacters[index];
+}
+
+function generateNewColor(){
+  let hexColorRep ="#"
+
+  for(let i = 0 ; i<6 ;i++){
+    const random = Math.floor(Math.random()*hexCharacters.length)
+    hexColorRep +=getCharacters(random)
+  }
+  return hexColorRep
+}
+
+let stop = null ;
+
+document.querySelector("#start").addEventListener("click", function(){
+
+  if(stop===null)
+  {
+    stop = setInterval(()=>{
+      const newColor = generateNewColor();
+      document.querySelector("body").style.backgroundColor = `${newColor}`
+    },1000)
+  }
+
+  
+});
+
+document.querySelector("#stop").addEventListener("click", function(){
+  if(stop!==null)
+  {
+    clearInterval(stop);
+    stop = null;
+  }
+});
+```
