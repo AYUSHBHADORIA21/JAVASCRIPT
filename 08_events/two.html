@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE AUR CHAI</title>
+</head>
+<body>
+    <h1>CODE AUR CHAI</h1>
+    <button id = "stop">Stop</button>
+</body>
+<script>
+
+    const sayAyush = function(){
+        console.log("Ayush");
+    }
+    const changeText = function(){
+        document.querySelector("h1").innerHTML = "Ayush Bhadoria"
+    }
+    const changeMe = setTimeout(changeText, 2000);
+    //2 sec ka time do uske badh me ye function execute kar dunga 
+
+    document.querySelector("#stop").addEventListener("click",function(){
+        clearTimeout(changeMe)//rok dega bech me jab bhi click karenge
+        console.log("STOPPED");
+    })
+    
+
+</script>
+</html>
